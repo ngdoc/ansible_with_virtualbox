@@ -83,11 +83,11 @@ shell_type = cmd
 ansible.cfg is used for configuration of the ansible instance. I didn't need it for this use case, but it can be used for more functionality as an instance expands its reach.
 
 ## playbooks
-Playbooks are yaml files used by ansible to interact with the remote host machines.  They are comprised of:
-Name: name of the playbook
-hosts: the group name of the hosts being targeted for the playbook 
-tasks: the tasks being executed on the target
-I also set the the gather_facts flag to false to try to un-complicate this instance's playbook runs.
+Playbooks are yaml files used by ansible to interact with the remote host machines.  They are comprised of:  <br />
+Name: name of the playbook  <br />
+hosts: the group name of the hosts being targeted for the playbook   <br />
+tasks: the tasks being executed on the target  <br />
+I also set the the gather_facts flag to false to try to un-complicate this instance's playbook runs.  
 
 The tasks listed in the playbook are very wide ranging, but generally are composed of a name and a module, in my case the module is ansible.builtin.win_shell to denote that I am interacting with a shell on a windows machine.  Normally, applications will have a specific ansible module to make interaction with them easy, but virtualbox does not which is why I chose to use the shell. 
 
@@ -101,12 +101,12 @@ So if I wanted to run the delete playbook I would run:
 ```
 ansible-playbook delete_vbox.yaml -i inventory.ini -vvv
 ```
--i is the inventory option
--vvv means that output should be verbost
+-i is the inventory option  <br />
+-vvv means that output should be verbost  <br />
 
-additionally, ansible can support other options including:
--u username for ssh connection
---ask-pass prompt for the password for the ssh connection
+additionally, ansible can support other options including:  <br />
+-u username for ssh connection  <br />
+--ask-pass prompt for the password for the ssh connection  
 
 ## commands used by playbooks to interact with virtualbox
 The commands used by the playbooks to interact with virtualbox come from virtualbox's native cli vboxmanage.  To use it, just ensure it is added to the Path variable. Here is the documentation for the command: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-cmd-overview.html
@@ -116,7 +116,7 @@ Create and register a vm in virtualbox
 ```
 vboxmanage createvm --name <name of machine> --basefolder "C:\Users\ngdoc\VirtualBox VMs" --ostype "Oracle Linux (64-bit)" --register
 ```
-Attach storage to a vm to prep for attaching the ise
+Attach storage to a vm to prep for attaching the iso
 ```
 VBoxManage storagectl "<name of machine>" --name IDE --add ide 
 ```
@@ -160,7 +160,7 @@ stop a virtual machine
 VBoxManage controlvm "<name of machine>" poweroff
 ```
 ## how to extend the functionality of this example
-I built this repo as a quick example of how to use ansible to interact with virtualbox, so there definitely a couple things that could be added to make this work in an actual full lab or production environment. Below are some options that I see that could extend the value of this example.
+I built this repo as a quick example of how to use ansible to interact with virtualbox, so there is definitely a couple things that could be added to make this work in an actual full lab or production environment. Below are some options that I see that could extend the value of this example.
 
 ### substitue in variables for hard coded values
 I hardcoded machine names and other information into the playbooks, if this is removed and replaced with a variable these playbooks could could interact with many machines at once and use different isos, OS's, memory size, etc.

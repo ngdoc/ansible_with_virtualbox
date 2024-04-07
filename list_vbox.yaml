@@ -1,0 +1,8 @@
+---
+- name: start vbox machine
+  hosts: win 
+  gather_facts: no
+  tasks:
+  - name: list vms
+    ansible.builtin.win_shell: |
+      vboxmanage list vms

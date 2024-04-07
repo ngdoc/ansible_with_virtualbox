@@ -1,0 +1,12 @@
+---
+- name: create vbox machine
+  hosts: win 
+  gather_facts: no
+  tasks:
+  - name: create vms
+    ansible.builtin.win_shell: |
+      vboxmanage createvm --name <name of machine> --basefolder "C:\Users\ngdoc\VirtualBox VMs" --ostype "Oracle Linux (64-bit)" --register
+      VBoxManage storagectl "<name of machine>" --name IDE --add ide 
+      VBoxManage modifyvm "<name of machine>" --memory 2048
+      VBoxManage storageattach "<name of machine>" --storagectl IDE --port 0 --device 0 --type dvddrive --medium "C:\Users\ngdoc\Downloads\NoblePup32-24.04-240406.iso"
+      vboxmanage startvm <name of machine> --type gui

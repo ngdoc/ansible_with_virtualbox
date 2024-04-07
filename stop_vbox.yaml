@@ -1,0 +1,8 @@
+---
+- name: stop vbox machine
+  hosts: win 
+  gather_facts: no
+  tasks:
+  - name: stop vms
+    ansible.builtin.win_shell: |
+      VBoxManage controlvm "<name of machine>" poweroff

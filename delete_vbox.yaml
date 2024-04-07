@@ -1,0 +1,8 @@
+---
+- name: delete vbox machine
+  hosts: win 
+  gather_facts: no
+  tasks:
+  - name: delete vms
+    ansible.builtin.win_shell: |
+      VBoxManage unregistervm <name of machine> --delete

@@ -47,7 +47,7 @@ Virtualbox comes with its own set of command line instructions called VBoxManage
 export PATH=$PATH:<path to vboxmanage>
 ```
 
-First you will want to install an ssh client by running:
+Next you will want to install an ssh client by running:
 ``` apt install sshpass ```
 
 Next we need to install python because it is a requirement for ansible.  This can be done by running 

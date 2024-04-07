@@ -4,7 +4,7 @@ This repo is an example of how to set up, configure, and run ansible to control 
 ## Setup for Windows
 As mentioned above, this is the most involved part of this process.
 Essentially, I wanted to make a network similar to what is pictured below to emulate managing a remote host with virtualbox installed.
-![alt text](https://github.com/ngdoc/ansible_with_virtualbox/blob/main/net_diagram.drawio?raw=true)
+![alt text](https://github.com/ngdoc/ansible_with_virtualbox/blob/main/net_Diagram.png?raw=true)
 
 First I installed virtualbox on windows using the gui from https://www.virtualbox.org/wiki/Downloads. Virtualbox comes with its own set of command line instructions called VBoxManage, but this does not automatically get added to my path so I added it to the path by identifying the folder that contained vboxmanage.exe (C:\Program Files\Oracle\VirtualBox\VBoxManage.exe) and adding it to the path environment variable by going to "edit environment variables" -> environment variables -> clicking path in the user environment variables -> pasting the path to the directory with vboxmanage.exe -> hit okay -> repeating for system variables -> press ok -> press ok
 
